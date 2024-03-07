@@ -1,0 +1,2493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Code Testing Editor</title>
+	<link rel="icon" href="/assets/men.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="demo.css" />
+    <link rel="stylesheet" href="content.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/split.js@1.6.0/dist/split.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <nav class="navbar bg-body-tertiary">
+      <div class="container-fluid">
+        <div class="row justify-content-between align-items-center d-flex">
+          <div class="col-auto pl-0">
+            <a class="navbar-brand" href="#">
+              <img
+                alt="Man"
+                src="/assets/men.png"
+                width="30"
+                height="30"
+                class="d-inline-block align-top"
+              />
+              <span>Code Testing Editor</span>
+            </a>
+          </div>
+          <div class="col-auto pr-0">
+            <button
+              type="submit"
+              style="width: 100%; display: none"
+              class="btn btn-primary"
+              id="convertButton"
+            >
+              Convert to code
+            </button>
+            <button
+              type="submit"
+              style="width: 100%; display: none"
+              class="btn btn-primary"
+              id="convertToTextButton"
+            >
+              Convert to Text
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid p-4">
+      <div class="row">
+        <div class="col-content" >
+          <div class="editor-wrapper">
+            <div id="cke5-feature-rich-demo" class="mt-2">
+              <p>
+                Carlat Psychiatry Fact Sheets are searchable online resources
+                developed to give clinicians the practical, bottom-line
+                information they need in an easy-to-use format. We offer two
+                distinct types of fact sheets: Clinical and Medication.
+              </p>
+
+              <p>
+                <strong>Clinical Fact Sheets</strong> provide concise one-page
+                summaries on various treatment topics. Examples include the
+                diagnosis and treatment of common conditions like major
+                depression and anxiety disorders, as well as less common issues
+                like catatonia or eating disorders.
+              </p>
+
+              <p>
+                <strong>Medication Fact Sheets</strong> are similarly designed
+                one-page summaries, but they focus on specific medications. If
+                you're familiar with our medical fact books, these sheets will
+                be reminiscent of that content.
+              </p>
+
+              <p>
+                Our primary aim with these fact sheets is to present information
+                in a clear, organized manner that can be quickly reviewed,
+                especially during those brief moments between patient
+                appointments. While they are not exhaustive in their coverage,
+                they are crafted to refresh your memory on key clinical
+                points—those crucial tidbits you may have learned in the past
+                but might not recall instantly. To offer a deeper dive, many
+                fact sheets come with hyperlinks directing you to relevant
+                articles and interviews on our website.
+              </p>
+
+              <p>
+                This is very much a work in progress and our fact sheet elves
+                (see our editorial process below) are busily adding more content
+                on a weekly basis so check back in the future if you don’t see a
+                topic covered.
+              </p>
+              <details>
+                <summary>
+                  <strong>Expand to View Editorial Information </strong>
+                </summary>
+
+                <p><em>Publisher:</em> Daniel Carlat, MD</p>
+
+                <p>
+                  <em>Clinical Editors:</em> Talia Puzantian, PharmD, BCPP;
+                  Chris Aiken, MD; Joshua Feder, MD; Noah Capurso, MD; Victoria
+                  Hendric, MD; Stephanie Collier, MD; Mark L. Ruffalo, MSW,
+                  DPsa; Rehan Aziz, MD
+                </p>
+
+                <p><em>Senior Editor:</em> Ilana Fogelson</p>
+
+                <p><em>Director of Digital Content:</em> Laurie Martin</p>
+
+                <p><em>Associate Editor: </em>Harmony Zambrano</p>
+
+                <p>
+                  <span
+                    style="
+                      font-style: normal;
+                      font-weight: 400;
+                      letter-spacing: normal;
+                      orphans: 2;
+                      text-align: left;
+                      widows: 2;
+                      word-spacing: 0px;
+                      display: inline !important;
+                      float: none;
+                    "
+                    >The fact sheet format is designed to give clinicians easy
+                    access to key information. </span
+                  >Fact sheets are based on Carlat Publishing's newsletter
+                  articles and books by Dr. Carlat, Dr. Puzantian, Dr. Aiken,
+                  Dr. Feder, Dr. Capurso, Dr. Hendrick, Dr. Ruffalo, and Dr.
+                  Aziz. Carlat Publishing occasionally uses artificial
+                  intelligence (AI) tools in various stages of the fact sheet
+                  creation process, such as creating preliminary drafts. In all
+                  cases, fact sheets are extensively revised during the
+                  editorial process by human clinicians and by our board of
+                  medical experts to ensure quality and accuracy.
+                </p>
+              </details>
+
+              <p>
+                <br />
+              </p>
+
+              <link
+                href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+                rel="stylesheet"
+              />
+              <style>
+                .accordion {
+                  box-sizing: border-box;
+                  font-weight: 300;
+                  list-style: none;
+                  border-radius: 0.625rem;
+                  padding: 0 0 1.25rem;
+                }
+
+                ul .accordion-inner {
+                  padding-left: 1em;
+                  overflow: hidden;
+                  display: none;
+                  padding: 5px;
+                  list-style: none;
+                  margin: 0.7em 0;
+                }
+
+                .accordion-inner li {
+                  padding: 0px 22px;
+                  color: black;
+                  font-weight: 500;
+                }
+
+                li a.accordion-toggle {
+                  text-decoration: none !important;
+                  width: 100%;
+                  color: #000000 !important;
+                  transition: background 0.3s ease;
+                  display: block;
+                  border: unset !important;
+                  font-weight: 600 !important;
+                  cursor: pointer;
+                }
+
+                .accordion a .fa-chevron-down {
+                  position: relative;
+                  color: #000;
+                  -webkit-transition: all 0.4s ease;
+                  -o-transition: all 0.4s ease;
+                  transition: all 0.4s ease;
+                }
+
+                .accordion a.chev .fa-chevron-down {
+                  color: #000;
+                }
+
+                .accordion a .fa-chevron-down {
+                  width: 0;
+                  height: 0;
+                  border-left: 5px solid transparent;
+                  border-right: 5px solid transparent;
+                  border-top: 10px solid #000;
+                  margin-right: 8px;
+                  display: inline-block;
+                  transform: rotate(-90deg);
+                }
+
+                .accordion a.chev .fa-chevron-down {
+                  transform: rotate(0deg);
+                }
+
+                .accordion-inner.show {
+                  display: block;
+                }
+
+                .accordion_btn button {
+                  background-color: transparent;
+                  border: unset;
+                  font-size: 0.75rem;
+                  text-decoration-line: underline;
+                  text-transform: capitalize;
+                  font-style: normal;
+                  font-weight: 600;
+                  color: #006773;
+                  line-height: 15px;
+                  text-align: left;
+                  margin: 0;
+                  padding: 0 10px 0 0px;
+                }
+              </style>
+
+              <p>
+                <span style="font-size: 24px"
+                  ><strong>Fact Sheet Library</strong></span
+                >
+                <br />Expand sections to browse fact sheets. 
+              </p>
+
+              <div class="accordion_btn">
+                <button id="expand_all">Expand All</button>
+                <button id="collapse_all">Collapse All</button>
+              </div>
+
+              <ul class="accordion">
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first">
+                    <i class="fa fa-chevron-down"></i><strong>ADHD</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>Differential Diagnosis</li>
+                    <li>Psychopharmacology</li>
+                    <li>Psychological Treatments</li>
+                    <li>Differential Diagnosis</li>
+                    <!-- 1st nested -->
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev"
+                        ><i class="fa fa-chevron-down"></i>Medication Fact
+                        Sheets</a
+                      >
+                      <div class="accordion-inner show">
+                        <ul>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ATOMOXETINE-%28Strattera%29-Fact-Sheet-%5BG%5D.pdf"
+                              >Atomoxetine (Strattera)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CLONIDINE-(Catapres-Kapvay)-Fact-Sheet-[G].pdf"
+                              >Clonidine (Catapres, Kapvay)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DEXMETHYLPHENIDATE-(Azstarys-Focalin-Focalin-XR)-Fact-Sheet-[G].pdf"
+                              >Dexmethylphenidate (Azstarys, Focalin, Focalin
+                              XR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DEXTROAMPHETAMINE-(Dexedrine-Dextrostat-Liquadd-ProCentra-Zenzedi)-Fact-Sheet-[G].pdf"
+                              >Dextroamphetamine (Dexedrine, Dextrostat,
+                              Liquadd, ProCentra, Zenzedi)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DEXTROAMPHETAMINE-TRANSDERMAL-(Xelstrym)-Fact-Sheet.pdf"
+                              >Dextroamphetamine Transdermal (Xelstrym)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/GUANFACINE-(Intuniv-Tenex)-Fact-Sheet-[G].pdf"
+                              >Guanfacine (Intuniv, Tenex)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LISDEXAMFETAMINE-(Vyvanse)-Fact-Sheet-[G].pdf"
+                              >Lisdexamfetamine (Vyvanse)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/METHAMPHETAMINE-(Desoxyn)-Fact-Sheet-[G].pdf"
+                              >Methamphetamine (Desoxyn)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/METHYLPHENIDATE-IR-(Methylin-Ritalin)-Fact-Sheet-[G].pdf"
+                              >Methylphenidate IR (Methylin, Ritalin)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/METHYLPHENIDATE-ER-(Concerta-Ritalin-SR-and-LA-others)-Fact-Sheet-[G].pdf"
+                              >Methylphenidate ER (Concerta, Ritalin SR and LA,
+                              others)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/METHYLPHENIDATE-TRANSDERMAL-(Daytrana)-Fact-Sheet-[G].pdf"
+                              >Methylphenidate Transdermal (Daytrana)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/MIXED-AMPHETAMINE-SALTS-(Adderall-Adderall-XR-Mydayis)-Fact-Sheet-[G].pdf"
+                              >Mixed Amphetamine Salts (Adderall, Adderall XR,
+                              Mydayis)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VILOXAZINE-XR-(Qelbree)-Fact-Sheet.pdf"
+                              >Viloxazine XR (Qelbree)</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <!-- section 2 -->
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Anxiety Disorders</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Clinical Fact Sheets
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>Panic Disorder Psychopharmacology</li>
+                        <li>Panic Disorder Psychological Treatments</li>
+                        <li>Generalized Anxiety Disorder Psychopharmacology</li>
+                        <li>
+                          Generalized Anxiety Disorder Psychological Treatments
+                        </li>
+                        <li>Social Anxiety Disorder Psychopharmacology</li>
+                        <li>
+                          Social Anxiety Disorder Psychological Treatments
+                        </li>
+                        <li>
+                          Obsessive Compulsive Disorder Psychopharmacology
+                        </li>
+                        <li>
+                          Obsessive Compulsive Disorder Psychological Treatments
+                        </li>
+                        <li>
+                          Post-Traumatic Stress Disorder Psychopharmacology
+                        </li>
+                        <li>
+                          Post-Traumatic Stress Disorder Psychological
+                          Treatments
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medication Fact
+                        Sheets</a
+                      >
+                      <div class="accordion-inner show">
+                        <ul>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ALPRAZOLAM-(Xanax)-Fact-Sheet-[G].pdf"
+                              >Alprazolam (Xanax)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ANTIHISTAMINES-(Diphenhydramine-others)-Fact-Sheet-[G].pdf"
+                              >Antihistamines (Diphenhydramine, others)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/BUSPIRONE-(BuSpar)-Fact-Sheet-[G].pdf"
+                              >Buspirone (BuSpar)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CLONAZEPAM-(Klonopin)-Fact-Sheet-[G].pdf"
+                              >Clonazepam (Klonopin)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DARIDOREXANT-(Quviviq)-Fact-Sheet.pdf"
+                              >Daridorexant (Quviviq)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DEXMEDETOMIDINE-(Igalmi)-Fact-Sheet.pdf"
+                              >Dexmedetomidine (Igalmi)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DIAZEPAM-(Valium)-Fact-Sheet-[G].pdf"
+                              >Diazepam (Valium)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DOXEPIN-(Silenor)-Fact-Sheet-[G].pdf"
+                              >Doxepin (Silenor)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ESZOPICLONE-(Lunesta)-Fact-Sheet-[G].pdf"
+                              >Eszopiclone (Lunesta)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/FLURAZEPAM-(Dalmane)-Fact-Sheet-[G].pdf"
+                              >Flurazepam (Dalmane)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/HYDROXYZINE-(Atarax-Vistaril)-Fact-Sheet-[G].pdf"
+                              >Hydroxyzine (Atarax, Vistaril)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LEMBOREXANT-(Dayvigo)-Fact-Sheet.pdf"
+                              >Lemborexant (Dayvigo)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LORAZEPAM-(Ativan-Loreev-XR)-Fact-Sheet-[G].pdf"
+                              >Lorazepam (Ativan, Loreev XR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/PRAZOSIN-(Minipress)-Fact-Sheet-[G].pdf"
+                              >Prazosin (Minipress)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/PROPRANOLOL-(Inderal)-Fact-Sheet-[G].pdf"
+                              >Propranolol (Inderal)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/RAMELTEON-(Rozerem)-Fact-Sheet-[G].pdf"
+                              >Ramelteon (Rozerem)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/SUVOREXANT-(Belsomra)-Fact-Sheet.pdf"
+                              >Suvorexant (Belsomra)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TEMAZEPAM-(Restoril)-Fact-Sheet-[G].pdf"
+                              >Temazepam (Restoril)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TRIAZOLAM-(Halcion)-Fact-Sheet-[G].pdf"
+                              >Triazolam (Halcion)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB6e/%20ZALEPLON%20%28Sonata%29%20Fact%20Sheet%20%5BG%5D.pdf"
+                              >Zaleplon (Sonata)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ZOLPIDEM-(Ambien-Edluar-Intermezzo-Zolpimist)-Fact-Sheet-[G].pdf"
+                              >Zolpidem (Ambien, Edluar, Intermezzo,
+                              Zolpimist)</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Bipolar Disorder</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Clinical Fact Sheets
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Bipolar-Disorder-Diagnostic-Interview.pdf"
+                            >Bipolar Disorder Diagnostic Interview</a
+                          >
+                        </li>
+                        <li>Bipolar Disorder Documentation and Tracking</li>
+                        <li>Maintenance Psychopharmacology</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Bipolar-Depression-Medication-Treatment.pdf"
+                            >Bipolar Depression Psychopharmacology</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/How-to-Medicate-Manic-Episodes.pdf"
+                            >How to Medicate Manic Episodes</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Bipolar-Depression-Medication-Treatment.pdf"
+                            >Bipolar Depression Medication Treatment</a
+                          >
+                        </li>
+
+                        <li>Bipolar Mania Psychopharmacology</li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medications Fact
+                        Sheets
+                      </a>
+
+                      <div class="accordion-inner show">
+                        <ul>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CARBAMAZEPINE-(Epitol-Equetro-Tegretol-others)-Fact-Sheet-[G].pdf"
+                              >Carbamazepine (Epitol, Equetro, Tegretol,
+                              others)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/GABAPENTIN-(Gralise-Horizant-Neurontin)-Fact-Sheet-[G].pdf"
+                              >Gabapentin (Gralise, Horizant, Neurontin)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LAMOTRIGINE-(Lamictal-Lamictal-XR-Subvenite)-Fact-Sheet-[G].pdf"
+                              >Lamotrigine (Lamictal, Lamictal XR, Subvenite)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LITHIUM-(Eskalith-Lithobid)-Fact-Sheet-[G].pdf"
+                              >Lithium (Eskalith, Lithobid)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/OXCARBAZEPINE-(Oxtellar-XR-Trileptal)-Fact-Sheet-[G].pdf"
+                              >Oxcarbazepine (Oxtellar XR, Trileptal)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/PREGABALIN-(Lyrica-Lyrica-CR)-Fact-Sheet-[G].pdf"
+                              >Pregabalin (Lyrica, Lyrica CR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TOPIRAMATE-(Eprontia-Qudexy-XR-Topamax-Trokendi-XR)-Fact-Sheet-[G].pdf"
+                              >Topiramate (Eprontia, Qudexy XR, Topamax,
+                              Trokendi XR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VALPROIC-ACID-(Depakene-Depakote-others)-Fact-Sheet-[G].pdf"
+                              >Valproic Acid (Depakene, Depakote, others)</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Child Psychiatry</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Clinical Fact Sheets
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>ADHD</li>
+                        <li>Anxiety Disorders</li>
+                        <li>Autistic Spectrum Disorder</li>
+                        <li>Developmental Disorders</li>
+                        <li>Depressive Disorders</li>
+                        <li>Bipolar Disorder</li>
+                        <li>Psychotic Disorders</li>
+                        <li>Substance Use Disorders</li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medication Fact sheets
+                      </a>
+
+                      <div class="accordion-inner show">
+                        <ul>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/AMPHETAMINE-(Adzenys-XR-ODT-Dyanavel-XR-Evekeo)-Fact-Sheet-[G].pdf"
+                              >AMPHETAMINE (Adzenys XR-ODT, Dyanavel XR, Evekeo)
+                              Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/ATOMOXETINE-(Strattera)-Fact-Sheet-[G].pdf"
+                              >ATOMOXETINE (Strattera) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/DEXMETHYLPHENIDATE-Fact-Sheet-[G].pdf"
+                              >DEXMETHYLPHENIDATE (Azstarys, Focalin, Focalin
+                              XR) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/CLONIDINE-(Catapres-Kapvay)-Fact-Sheet-[G].pdf"
+                              >CLONIDINE (Catapres, Kapvay) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/GUANFACINE-(Intuniv-Tenex)-Fact-Sheet-[G].pdf"
+                              >GUANFACINE (Intuniv Tenex) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/DEXTROAMPHETAMINE-(Dexedrine-ProCentra-Zenzedi)-Fact-Sheet-[G].pdf"
+                              >DEXTROAMPHETAMINE (Dexedrine, ProCentra, Zenzedi)
+                              Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/SERTRALINE-(Zoloft)-Fact-Sheet-[G].pdf"
+                              >SERTRALINE (Zoloft) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/METHYLPHENIDATE-ER-(Concerta-Ritalin-SR-and-LA-others)-Fact-Sheet-[G].pdf"
+                              >METHYLPHENIDATE ER (Concerta Ritalin SR and LA
+                              others) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/ZIPRASIDONE-(Geodon)-Fact-Sheet-[G].pdf"
+                              >ZIPRASIDONE (Geodon) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/BREXPIPRAZOLE-(Rexulti)-Fact-Sheet.pdf"
+                              >BREXPIPRAZOLE (Rexulti) Fact Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/N-ACETYLCYSTEINE-(NAC)-Fact-Sheet-[G].pdf"
+                              >N-ACETYLCYSTEINE (NAC) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/LAMOTRIGINE-(Lamictal-Subvenite)-Fact-Sheet-[G].pdf"
+                              >LAMOTRIGINE (Lamictal, Subvenite) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/L-METHYLFOLATE-(Deplin)-Fact-Sheet-[G].pdf"
+                              >L-METHYLFOLATE (Deplin) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/DISULFIRAM-(Antabuse)-Fact-Sheet-[G].pdf"
+                              >DISULFIRAM (Antabuse) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/LURASIDONE-(Latuda)-Fact-Sheet.pdf"
+                              >LURASIDONE (Latuda) Fact Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/METHYLPHENIDATE-IR-(Methylin-Ritalin)-Fact-Sheet-[G].pdf"
+                              >METHYLPHENIDATE IR (Methylin, Ritalin) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/NALTREXONE-(ReVia-Vivitrol)-Fact-Sheet-[G].pdf"
+                              >NALTREXONE (ReVia, Vivitrol) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/S-ADENOSYL-L-METHIONINE-(SAMe)-Fact-Sheet-[G].pdf"
+                              >S-ADENOSYL-L-METHIONINE (SAMe) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/VITAMIN-D-Fact-Sheet-[G].pdf"
+                              >VITAMIN D Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/PROPRANOLOL-%28Inderal%29-Fact-Sheet-%5BG%5D.pdf"
+                              >PROPRANOLOL (Inderal) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/OMEGA-3-FATTY-ACIDS-(Fish-Oil)-Fact-Sheet-[G].pdf"
+                              >OMEGA-3 FATTY ACIDS (Fish Oil) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/ASENAPINE-(Saphris-Secuado)-Fact-Sheet-[G].pdf"
+                              >ASENAPINE (Saphris, Secuado) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/VALPROIC-ACID-(Depakote)-Fact-Sheet-[G].pdf"
+                              >VALPROIC ACID (Depakote) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/CLOZAPINE-(Clozaril-FazaClo-Versacloz)-Fact-Sheet-[G].pdf"
+                              >CLOZAPINE (Clozaril, FazaClo, Versacloz) Fact
+                              Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/MIRTAZAPINE-(Remeron)-Fact-Sheet-[G].pdf"
+                              >MIRTAZAPINE (Remeron) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/DULOXETINE-(Cymbalta-Drizalma-Sprinkle)-Fact-Sheet-[G].pdf"
+                              >DULOXETINE (Cymbalta, Drizalma Sprinkle) Fact
+                              Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/SELEGILINE-TRANSDERMAL-(EMSAM)-Fact-Sheet.pdf"
+                              >SELEGILINE TRANSDERMAL (EMSAM) Fact Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/CITALOPRAM-(Celexa)-Fact-Sheet-[G].pdf"
+                              >CITALOPRAM (Celexa) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/BUPROPION-(Wellbutrin-others)-Fact-Sheet-[G].pdf"
+                              >BUPROPION (Wellbutrin, others) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/CHLORPROMAZINE-(Thorazine)-Fact-Sheet-[G].pdf"
+                              >CHLORPROMAZINE (Thorazine) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/SAFFRON-Fact-Sheet-[G].pdf"
+                              >SAFFRON Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/PALIPERIDONE-(Invega)-Fact-Sheet-[G].pdf"
+                              >PALIPERIDONE (Invega) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/QUETIAPINE-(Seroquel)-Fact-Sheet-[G].pdf"
+                              >QUETIAPINE (Seroquel) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/MIXED-AMPHETAMINE-SALTS-(Adderall-Adderall-XR-Mydayis)-Fact-Sheet-[G].pdf"
+                              >MIXED AMPHETAMINE SALTS (Adderall, Adderall XR,
+                              Mydayis) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/RAMELTEON-(Rozerem)-Fact-Sheet-[G].pdf"
+                              >RAMELTEON (Rozerem) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/TRAZODONE-Fact-Sheet-[G].pdf"
+                              >TRAZODONE Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/LISDEXAMFETAMINE-(Vyvanse)-Fact-Sheet.pdf"
+                              >LISDEXAMFETAMINE (Vyvanse) Fact Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/CLONAZEPAM-(Klonopin)-Fact-Sheet-[G].pdf"
+                              >CLONAZEPAM (Klonopin) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/DESVENLAFAXINE-(Pristiq)-Fact-Sheet-[G].pdf"
+                              >DESVENLAFAXINE (Pristiq) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/METHYLPHENIDATE-TRANSDERMAL-(Daytrana)-Fact-Sheet.pdf"
+                              >METHYLPHENIDATE TRANSDERMAL (Daytrana) Fact
+                              Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/OLANZAPINE-(Lybalvi-Symbyax-Zyprexa)-Fact-Sheet-[G].pdf"
+                              >OLANZAPINE (Lybalvi, Symbyax, Zyprexa) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/VENLAFAXINE-(Effexor-Effexor-XR)-Fact-Sheet-[G].pdf"
+                              >VENLAFAXINE (Effexor, Effexor XR) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/METHAMPHETAMINE-(Desoxyn)-Fact-Sheet-[G].pdf"
+                              >METHAMPHETAMINE (Desoxyn) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/VILOXAZINE-XR-(Qelbree)-Fact-Sheet.pdf"
+                              >VILOXAZINE XR (Qelbree) Fact Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/PRAZOSIN-(Minipress)-Fact-Sheet-[G].pdf"
+                              >PRAZOSIN (Minipress) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/FLUOXETINE-(Prozac-Prozac-Weekly)-Fact-Sheet-[G].pdf"
+                              >FLUOXETINE (Prozac, Prozac Weekly) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/FLUVOXAMINE-(Luvox-Luvox-CR)-Fact-Sheet-[G].pdf"
+                              >FLUVOXAMINE (Luvox, Luvox CR) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/BUPRENORPHINE_NALOXONE-(Bunavail-Suboxone-Zubsolv)-Fact-Sheet-[G].pdf"
+                              >BUPRENORPHINE/NALOXONE (Bunavail, Suboxone,
+                              Zubsolv) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/BUSPIRONE-(BuSpar)-Fact-Sheet-[G].pdf"
+                              >BUSPIRONE (BuSpar) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/ARIPIPRAZOLE-(Abilify)-Fact-Sheet-[G].pdf"
+                              >ARIPIPRAZOLE (Abilify) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/PERPHENAZINE-(Trilafon)-Fact-Sheet-[G].pdf"
+                              >PERPHENAZINE (Trilafon) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/TRICYCLIC-ANTIDEPRESSANTS-(TCAs)-Fact-Sheet-[G].pdf"
+                              >TRICYCLIC ANTIDEPRESSANTS (TCAs) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/DEXTROAMPHETAMINE-TRANSDERMAL-(Xelstrym)-Fact-Sheet.pdf"
+                              >DEXTROAMPHETAMINE TRANSDERMAL (Xelstrym) Fact
+                              Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/LITHIUM-(Eskalith-Lithobid)-Fact-Sheet-[G].pdf"
+                              >LITHIUM (Eskalith, Lithobid) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/ANTIHISTAMINES-(Diphenhydramine-Doxylamine-Hydroxyzine)-Fact-Sheet-[G].pdf"
+                              >ANTIHISTAMINES (Diphenhydramine, Doxylamine,
+                              Hydroxyzine) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/ESCITALOPRAM-(Lexapro)-Fact-Sheet-[G].pdf"
+                              >ESCITALOPRAM (Lexapro) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/OXCARBAZEPINE-(Oxtellar-XR-Trileptal)-Fact-Sheet-[G].pdf"
+                              >OXCARBAZEPINE (Oxtellar XR, Trileptal) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/RISPERIDONE-(Risperdal)-Fact-Sheet-[G].pdf"
+                              >RISPERIDONE (Risperdal) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/NICOTINE-GUM_LOZENGE-(Nicorette)-Fact-Sheet-[G].pdf"
+                              >NICOTINE GUM/LOZENGE (Nicorette) Fact Sheet
+                              [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/NICOTINE-NASAL-SPRAY-(Nicotrol-NS)-Fact-Sheet.pdf"
+                              >NICOTINE NASAL SPRAY (Nicotrol NS) Fact Sheet</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/VARENICLINE-(Chantix)-Fact-Sheet-[G].pdf"
+                              >VARENICLINE (Chantix) Fact Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/LAVENDER-ESSENTIAL-OIL-(CalmAid-Silexan)-Fact-Sheet-[G].pdf"
+                              >LAVENDER ESSENTIAL OIL (CalmAid, Silexan) Fact
+                              Sheet [G]</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/CMFB2e/ST.-JOHNS-WORT-Fact-Sheet-[G].pdf"
+                              >ST. JOHN’S WORT Fact Sheet [G]</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Consult-Liaison Psychiatry</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>Overview: Most Common Referral Reasons</li>
+                    <li>Delirium Assessment/Diagnosis</li>
+                    <li>Delirium Management</li>
+                    <li>Depression in the Medically Ill</li>
+                    <li>Agitation Management</li>
+                    <li>Anxiety in Medical Settings</li>
+                    <li>
+                      <a
+                        href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Token-Economy-FS.pdf"
+                        >Inpatient Token Economy FS</a
+                      >
+                    </li>
+                    <li>Psychosis in the Medically Ill</li>
+                    <li>
+                      <a
+                        href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Responding-to-sexual-activity-on-the-inpatient-unit.docx.pdf"
+                        >Responding To Sexual Activity On The Inpatient Unit</a
+                      >
+                    </li>
+                    <li>Suicidality in Medical Settings</li>
+                    <li>Capacity Evaluations</li>
+                    <li>Pain Management and Opioid Use</li>
+                    <li>End-of-Life and Palliative Care Discussions</li>
+                    <li>Documentation in CL Psychiatry</li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medical
+                        Illnesses/Symptoms/Side Effects
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Bruxism.pdf"
+                            >Bruxism Inpatient Fact Sheet</a
+                          >
+                        </li>
+                        <li>Constipation</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Diarrhea.pdf"
+                            >Diarrhea</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Autism-Spectrum-Disorder_-Management-in-the-Adult-Inpatient-Unit.docx.pdf"
+                            >Autism Spectrum Disorder Management in the Adult
+                            Inpatient Unit</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Deliberate-Foreign-Body-Ingestion.pdf"
+                            >Deliberate Foreign-Body Ingestion</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Dry-Mouth.pdf"
+                            >Inpatient Fact Sheet Dry Mouth</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Excessive-Sweating.pdf"
+                            >Inpatient Fact Sheet Excessive Sweating</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Fatigue.pdf"
+                            >Inpatient Fact Sheet Fatigue</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Intellectual-disabilities-fact-sheet.pdf"
+                            >Intellectual Disabilities Fact Sheet</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Nausea.pdf"
+                            >Inpatient Fact Sheet Nausea</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Orthostatic-Hypotension.pdf"
+                            >Inpatient Fact Sheet Orthostatic Hypotension</a
+                          >
+                        </li>
+                        <li>QT interval prolongation</li>
+                        <li>Serotonin Syndrome</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Sexual-Dysfunction.pdf"
+                            >Inpatient Fact Sheet Sexual Dysfunction</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Sialorrhea.pdf"
+                            >Inpatient Fact Sheet Sialorrhea</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Tremor.pdf"
+                            >Inpatient Fact Sheet Tremor</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Weight-Gain.pdf"
+                            >Inpatient Fact Sheet Weight Gain</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Akathisia.pdf"
+                            >Inpatient Fact Sheet Akathisia</a
+                          >
+                        </li>
+                        <li>Clozapine Side Effects</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Dystonia.pdf"
+                            >Inpatient Fact Sheet Dystonia</a
+                          >
+                        </li>
+                        <li>Excessive Salivation</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_NMS.pdf"
+                            >Inpatient Fact Sheet NMS</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Parkinsonism.pdf"
+                            >Inpatient Fact Sheet Parkinsonism</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Prolactinemia.pdf"
+                            >Inpatient Fact Sheet Prolactinemia</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Tardive-Dyskinesia.pdf"
+                            >Inpatient Fact Sheet Tardive Dyskinesia</a
+                          >
+                        </li>
+                        <li>Kidney pathophysiology review</li>
+                        <li>Prescribing Meds in Renal impairment</li>
+                        <li>Liver pathophysiology review</li>
+                        <li>Prescribing Meds in Hepatic impairment</li>
+                        <li>Hyponatremia</li>
+                        <li>Dehydration</li>
+                        <li>Diabetes</li>
+                        <li>Hypertension</li>
+                        <li>Pancreas</li>
+                        <li>QT Prolongation</li>
+                        <li>Edema</li>
+                        <li>Hyperlipidemia</li>
+                        <li>Chest Pain</li>
+                        <li>GERD</li>
+                        <li>Obesity</li>
+                        <li>Respiratory infection</li>
+                        <li>COPD</li>
+                        <li>Urinary tract infection</li>
+                        <li>Parkinson's Disease</li>
+                        <li>Multiple Sclerosis</li>
+                        <li>Huntington’s Disease</li>
+                        <li>Pain</li>
+                        <li>Stroke</li>
+                        <li>Vision problems</li>
+                        <li>Dermatological issues</li>
+                        <li>CPR</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Depressive Disorders</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Clinical Fact Sheets
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>Depressive Disorders Diagnosis</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Major-Depression-Med-fact-sheet.pdf"
+                            >Major Depression Med Fact Sheet</a
+                          >
+                        </li>
+                        <li>Major Depression CBT Treatment</li>
+                        <li>Major Depression Psychodynamic Treatment</li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medication Fact Sheets
+                      </a>
+
+                      <div class="accordion-inner">
+                        <ul>
+                          <li>TMS</li>
+                          <li>ECT</li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/BREXANOLONE-(Zulresso)-Fact-Sheet.pdf"
+                              >Brexanolone (Zulresso)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/BUPROPION-(Wellbutrin-others)-Fact-Sheet-[G].pdf"
+                              >Bupropion (Wellbutrin, others)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CITRALOPRAM-(Celexa)-Fact-Sheet-[G].pdf"
+                              >Citalopram (Celexa)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CLOMIPRAMINE-(Anafranil)-Fact-Sheet-[G].pdf"
+                              >Clomipramine (Anafranil)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DESVENLAFAXINE-(Pristiq)-Fact-Sheet-[G].pdf"
+                              >Desvenlafaxine (Pristiq)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DEXTROMETHORPHAN_BUPROPION-(Auvelity)-Fact-Sheet.pdf"
+                              >Dextromethorphan/Bupropion (Auvelity)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DULOXETINE-(Cymbalta-Drizalma-Sprinkle)-Fact-Sheet-[G].pdf"
+                              >Duloxetine (Cymbalta, Drizalma Sprinkle)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ESCITALOPRAM-(Lexapro)-Fact-Sheet-[G].pdf"
+                              >Escitalopram (Lexapro)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ESKETAMINE-(Spravato)-Fact-Sheet.pdf"
+                              >Esketamine (Spravato)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/FLUOXETINE-(Prozac-Prozac-Weekly)-Fact-Sheet-[G].pdf"
+                              >Fluoxetine (Prozac, Prozac Weekly)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/FLUVOXAMINE-(Luvox-Luvox-CR)-Fact-Sheet-[G].pdf"
+                              >Fluvoxamine (Luvox, Luvox CR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/KETAMINE-(Ketalar)-Fact-Sheet-[G].pdf"
+                              >Ketamine (Ketalar)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LEVOMILNACIPRAN-(Fetzima)-Fact-Sheet.pdf"
+                              >Levomilnacipran (Fetzima)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/MIRTAZAPINE-(Remeron)-Fact-Sheet-[G].pdf"
+                              >Mirtazapine (Remeron)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/MONOAMINE-OXIDASE-INHIBITORS-(MAOIs)-Fact-Sheet-[G].pdf"
+                              >Monoamine Oxidase Inhibitors (MAOIs)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/NEFAZODONE-(Serzone)-Fact-Sheet-[G].pdf"
+                              >Nefazodone (Serzone)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/PAROXETINE-(Brisdelle-Paxil-Paxil-CR-Pexeva)-Fact-Sheet-[G].pdf"
+                              >Paroxetine (Brisdelle, Paxil, Paxil CR,
+                              Pexeva)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/SELEGILINE-TRANSDERMAL-(Emsam)-Fact-Sheet.pdf"
+                              >Selegiline Transdermal (Emsam)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/SERTRALINE-(Zoloft)-Fact-Sheet-[G].pdf"
+                              >Sertraline (Zoloft)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/THYROID-(Cytomel-Synthroid-others)-Fact-Sheet-[G].pdf"
+                              >Thyroid (Cytomel, Synthroid, others)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TRICYCLIC-ANTIDEPRESSANTS-(TCAs)-Fact-Sheet-[G].pdf"
+                              >Tricyclic Antidepressants (TCAs)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VENLAFAXINE-(Effexor-Effexor-XR)-Fact-Sheet-[G].pdf"
+                              >Venlafaxine (Effexor, Effexor XR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VILAZODONE-(Viibryd)-Fact-Sheet-[G].pdf"
+                              >Vilazodone (Viibryd)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VORTIOXETINE-(Trintellix)-Fact-Sheet.pdf"
+                              >Vortioxetine (Trintellix)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ZURANOLONE-(Zurzuvae)-Fact-Sheet.pdf"
+                              >Zuranolone (Zurzuvae)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TRICYCLIC-ANTIDEPRESSANTS-(TCAs)-Fact-Sheet-[G].pdf"
+                              >Tricyclic Antidepressants (TCAs)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VENLAFAXINE-(Effexor-Effexor-XR)-Fact-Sheet-[G].pdf"
+                              >Venlafaxine (Effexor, Effexor XR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VILAZODONE-(Viibryd)-Fact-Sheet-[G].pdf"
+                              >Vilazodone (Viibryd)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VORTIOXETINE-(Trintellix)-Fact-Sheet.pdf"
+                              >Vortioxetine (Trintellix)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ZURANOLONE-(Zurzuvae)-Fact-Sheet.pdf"
+                              >Zuranolone (Zurzuvae)</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Eating Disorders</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Clinical Fact Sheets
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>Anorexia Nervosa Diagnosis and Treatment</li>
+                        <li>Bulimia Nervosa Diagnosis and Treatment</li>
+                        <li>Binge Eating Disorder Diagnosis and Treatment</li>
+                        <li>Eating Disorders Inpatient Management</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Emergency Psychiatry</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>Emergency Psych Evaluation Template</li>
+                    <li>How To Do a Psych ER Evaluation</li>
+                    <li>How to Verbally Deescalate Patients</li>
+                    <li>
+                      Agitation Medication Protocol for the Emergency Room
+                    </li>
+                    <li>Suicide Risk Assessment in the ER</li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Forensic Psychiatry</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>Competency to Stand Trial Determination</li>
+                    <li>Competency to Stand Trial Documentation</li>
+                    <li>Criminal Responsibility Determination</li>
+                    <li>Malingering Evaluation</li>
+                    <li>Violence Risk Assessment</li>
+                    <li>Sexual Offense Risk Evaluations</li>
+                    <li>Child Custody Evaluations</li>
+                    <li>Civil Commitment Process</li>
+                    <li>Personal Injury/Psychological Harm Evaluations</li>
+                    <li>Psychiatric Disability Evaluations</li>
+                    <li>Testifying in Court—How to Prepare</li>
+                    <li>
+                      Testifying in Court—Tips for Direct and Cross-Examination
+                    </li>
+                    <li>
+                      Correctional Psychiatry—Tips for Psychopharmacology in
+                      Prison Settings
+                    </li>
+                    <li>Juvenile Forensic Evaluations</li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Geriatric Psychiatry</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Clinical Fact Sheets
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>Interviewing Older Adults</li>
+                        <li>Functional Assessment in Late Life</li>
+                        <li>
+                          Depression and Apathy in Older Adults Assessment
+                        </li>
+                        <li>Anxiety Disorders in Older Adults Assessment</li>
+                        <li>Bipolar Disorder in Older Adults Assessment</li>
+                        <li>Psychosis in Older Adults Assessment</li>
+                        <li>
+                          Substance Use Disorders in Older Adults Assessment
+                        </li>
+                        <li>Medical Mimics in Geriatric Psychiatry</li>
+                        <li>
+                          Neuroimaging in Late-Life Psychiatric Conditions
+                        </li>
+                        <li>Neurocognitive Disorders Assessment</li>
+                        <li>Alzheimer's Disease Assessment</li>
+                        <li>Lewy Body Dementia Assessment and Treatment</li>
+                        <li>Vascular Dementia Assessment and Treatment</li>
+                        <li>
+                          Frontotemporal Dementia Assessment and Treatment
+                        </li>
+                        <li>
+                          Delirium in Older Adults Assessment and Treatment
+                        </li>
+                        <li>Parkinson's Disease: Psychiatric Aspects</li>
+                        <li>
+                          Principles of Pharmacotherapy in Geriatric Psychiatry
+                        </li>
+                        <li>
+                          Behavioral and Psychological Symptoms of Dementia
+                          Psychopharmacology
+                        </li>
+                        <li>
+                          Behavioral and Psychological Symptoms of Dementia
+                          Psychological Treatments
+                        </li>
+                        <li>Depression in Older Adults Psychopharmacology</li>
+                        <li>Anxiety in Older Adults Psychopharmacology</li>
+                        <li>Antipsychotics in Older Adults</li>
+                        <li>Mood Stabilizers in Older Adults</li>
+                        <li>Insomnia in Older Adults Psychopharmacology</li>
+                        <li>
+                          Substance Use Disorder in Older Adults Treatment
+                        </li>
+                        <li>
+                          Reminiscence Therapy: Utilizing Past Memories for
+                          Mental Health
+                        </li>
+                        <li>Community Resources for Older Adults</li>
+                        <li>Psychiatric Care in the Nursing Home</li>
+                        <li>
+                          Grief and Bereavement in Late Life: Supporting Elderly
+                          Individuals
+                        </li>
+                        <li>Capacity and Competency Evaluations</li>
+                        <li>Elder Abuse: Recognition and Reporting</li>
+                        <li>Palliative Care and End-of-Life Issues</li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medication Fact Sheets
+                      </a>
+
+                      <div class="accordion-inner show">
+                        <ul>
+                          <li>
+                            Cholinesterase Inhibitors in Dementia Overview
+                          </li>
+                          <li>Anti-Amyloid Treatments for Dementia Overview</li>
+                          <li>[Relevant fact sheets from MFB]</li>
+                          <li>Drug-Drug Interactions in Older Adults</li>
+                          <li>Anticholinergic Side Effects in Older Adults</li>
+                          <li>
+                            SSRIs, Hyponatremia, and Bleeding in Older Adults
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ADUCANUMAB-(Aduhelm)-Fact-Sheet.pdf"
+                              >Aducanumab (Aduhelm)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DONEPEZIL-(Aricept-Adlarity)-Fact-Sheet-[G].pdf"
+                              >Donepezil (Aricept, Adlarity)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/GALANTAMINE-(Razadyne-Razadyne-ER)-Fact-Sheet-[G].pdf"
+                              >Galantamine (Razadyne, Razadyne ER)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LECANEMAB-(Leqembi)-Fact-Sheet.pdf"
+                              >Lecanemab (Leqembi)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/MEMANTINE-(Namenda-Namenda-XR)-Fact-Sheet-[G].pdf"
+                              >Memantine (Namenda, Namenda XR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/MEMANTINE-ER_DONEPEZIL-(Namzaric)-Fact-Sheet.pdf"
+                              >Memantine ER/Donepezil (Namzaric)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/RIVASTIGMINE-(Exelon-Exelon-Patch)-Fact-Sheet-[G].pdf"
+                              >Rivastigmine (Exelon, Exelon Patch)</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Insomnia</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>Differential diagnosis</li>
+                    <li>Psychopharmacology</li>
+                    <li>Psychological treatments</li>
+                    <li>Medication Fact Sheets</li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Psychotic Disorders</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Clinical Fact Sheets
+                      </a>
+
+                      <ul class="accordion-inner">
+                        <li>Differential diagnosis of psychotic disorders</li>
+                        <li>Schizophrenia psychopharmacology</li>
+                        <li>Schizophrenia psychological treatments</li>
+                        <li>
+                          Schizoaffective disorder diagnosis and treatment
+                        </li>
+                        <li>Psychosis interview techniques</li>
+                        <li>Substance induced psychosis</li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medication Fact Sheets
+                      </a>
+
+                      <div class="accordion-inner show">
+                        <ul>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ARIPIPRAZOLE-(Abilify)-Fact-Sheet-[G].pdf"
+                              >Aripiprazole (Abilify)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ASENAPINE-(Saphris-Secuado)-Fact-Sheet-[G].pdf"
+                              >Asenapine (Saphris, Secuado)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/BREXPIPRAZOLE-(Rexulti)-Fact-Sheet.pdf"
+                              >Brexpiprazole (Rexulti)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CARIPRAZINE-(Vraylar)-Fact-Sheet.pdf"
+                              >Cariprazine (Vraylar)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CHLORPROMAZINE-(Thorazine)-Fact-Sheet-[G].pdf"
+                              >Chlorpromazine (Thorazine)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/CLOZAPINE-(Clozaril-FazaClo-Versacloz)-Fact-Sheet-[G].pdf"
+                              >Clozapine (Clozaril, FazaClo, Versacloz)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/FLUPHENAZINE-(Prolixin)-Fact-Sheet-[G].pdf"
+                              >Fluphenazine (Prolixin)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/HALOPERIDOL-(Haldol)-Fact-Sheet-[G].pdf"
+                              >Haloperidol (Haldol)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/HALOPERIDOL-(Haldol)-Fact-Sheet-[G].pdf"
+                              >Iloperidone (Fanapt)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LOXAPINE-(Adasuve-Loxitane)-Fact-Sheet-[G].pdf"
+                              >Loxapine (Adasuve, Loxitane)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LUMATEPERONE-(Caplyta)-Fact-Sheet.pdf"
+                              >Lumateperone (Caplyta)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/LURASIDONE-(Latuda)-Fact-Sheet-[G].pdf"
+                              >Lurasidone (Latuda)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/MOLINDONE-(Moban)-Fact-Sheet-[G].pdf"
+                              >Molindone (Moban)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/OLANZAPINE-(Lybalvi-Symbyax-Zyprexa)-Fact-Sheet-[G].pdf"
+                              >Olanzapine (Lybalvi, Symbyax, Zyprexa)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/PALIPERIDONE-(Invega)-Fact-Sheet-[G].pdf"
+                              >Paliperidone (Invega)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/PERPHENAZINE-(Trilafon)-Fact-Sheet-[G].pdf"
+                              >Perphenazine (Trilafon)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/PIMAVANSERIN-(Nuplazid)-Fact-Sheet.pdf"
+                              >Pimavanserin (Nuplazid)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/QUETIAPINE-(Seroquel-Seroquel-XR)-Fact-Sheet-[G].pdf"
+                              >Quetiapine (Seroquel, Seroquel XR)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/RISPERIDONE-(Risperdal)-Fact-Sheet-[G].pdf"
+                              >Risperidone (Risperdal)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/THIORIDAZINE-(Mellaril)-Fact-Sheet-[G].pdf"
+                              >Thioridazine (Mellaril)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/THIOTHIXENE-(Navane)-Fact-Sheet-[G].pdf"
+                              >Thiothixene (Navane)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TRIFLUOPERAZINE-(Stelazine)-Fact-Sheet-[G].pdf"
+                              >Trifluoperazine (Stelazine)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/ZIPRASIDONE-(Geodon)-Fact-Sheet-[G].pdf"
+                              >Ziprasidone (Geodon)</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Side Effect Management</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Medications
+                      </a>
+
+                      <div class="accordion-inner show">
+                        <ul>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/AMANTADINE-(Gocovri-Symmetrel)-Fact-Sheet-[G].pdf"
+                              >Amantadine (Gocovri, Symmetrel)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/BENZTROPINE-(Cogentin)-Fact-Sheet-[G].pdf"
+                              >Benztropine (Cogentin)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/DEUTETRABENAZINE-(Austedo)-Fact-Sheet.pdf"
+                              >Deutetrabenazine (Austedo)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/METFORMIN-(Glucophage-Glumetza-Riomet)-Fact-Sheet-[G].pdf"
+                              >Metformin (Glucophage, Glumetza, Riomet)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TETRABENAZINE-(Xenazine)-Fact-Sheet-[G].pdf"
+                              >Tetrabenazine (Xenazine)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/TRIHEXYPHENIDYL-(Artane)-Fact-Sheet-[G].pdf"
+                              >Trihexyphenidyl (Artane)</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://www.thecarlatreport.com/ext/resources/factsheets/MFB7e/VALBENAZINE-(Ingrezza)-Fact-Sheet.pdf"
+                              >Valbenazine (Ingrezza)</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                      <ul class="accordion-inner">
+                        <li class="accordion-chevron">
+                          <a class="accordion-toggle second chev">
+                            <i class="fa fa-chevron-down"></i>Side Effects
+                          </a>
+
+                          <div class="accordion-inner show"></div>
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Bruxism.pdf"
+                            >Bruxism Inpatient Fact Sheet</a
+                          >
+                        </li>
+                        <li>Constipation</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Diarrhea.pdf"
+                            >Diarrhea</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Autism-Spectrum-Disorder_-Management-in-the-Adult-Inpatient-Unit.docx.pdf"
+                            >Autism Spectrum Disorder Management in the Adult
+                            Inpatient Unit</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Deliberate-Foreign-Body-Ingestion.pdf"
+                            >Deliberate Foreign-Body Ingestion</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Dry-Mouth.pdf"
+                            >Inpatient Fact Sheet Dry Mouth</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Excessive-Sweating.pdf"
+                            >Inpatient Fact Sheet Excessive Sweating</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Fatigue.pdf"
+                            >Inpatient Fact Sheet Fatigue</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Intellectual-disabilities-fact-sheet.pdf"
+                            >Intellectual Disabilities Fact Sheet</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Nausea.pdf"
+                            >Inpatient Fact Sheet Nausea</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Orthostatic-Hypotension.pdf"
+                            >Inpatient Fact Sheet Orthostatic Hypotension</a
+                          >
+                        </li>
+                        <li>QT interval prolongation</li>
+                        <li>Serotonin Syndrome</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Sexual-Dysfunction.pdf"
+                            >Inpatient Fact Sheet Sexual Dysfunction</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Sialorrhea.pdf"
+                            >Inpatient Fact Sheet Sialorrhea</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Tremor.pdf"
+                            >Inpatient Fact Sheet Tremor</a
+                          >
+                        </li>
+
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Weight-Gain.pdf"
+                            >Inpatient Fact Sheet Weight Gain</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Antipsychotic side
+                        effects
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Akathisia.pdf"
+                            >Inpatient Fact Sheet Akathisia</a
+                          >
+                        </li>
+                        <li>Clozapine Side Effects</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Dystonia.pdf"
+                            >Inpatient Fact Sheet Dystonia</a
+                          >
+                        </li>
+                        <li>Excessive Salivation</li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_NMS.pdf"
+                            >Inpatient Fact Sheet NMS</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Parkinsonism.pdf"
+                            >Inpatient Fact Sheet Parkinsonism</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Prolactinemia.pdf"
+                            >Inpatient Fact Sheet Prolactinemia</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/factsheetlibrary/Inpatient-Fact-Sheet_Tardive-Dyskinesia.pdf"
+                            >Inpatient Fact Sheet Tardive Dyskinesia</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Substance Use Disorders</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Alcohol Use Disorder
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/ACAMPROSATE-(Campral)-Fact-Sheet-[G].pdf"
+                            >ACAMPROSATE (Campral) Fact Sheet [G]</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Medical-Issues-and-Alcohol-Use-Disorder.pdf"
+                            >Medical Issues and Alcohol Use Disorder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/DISULFIRAM-(Antabuse)-Fact-Sheet-[G].pdf"
+                            >DISULFIRAM (Antabuse) Fact Sheet [G]</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Use-Phenobarbital-to-Manage-Alcohol-Withdrawal.pdf"
+                            >How to Use Phenobarbital to Manage Alcohol
+                            Withdrawal</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Conduct-a-Family-Meeting.pdf"
+                            >How to Conduct a Family Meeting</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/TOPIRAMATE-(Eprontia-Qudexy-XR-Topamax-Trokendi-XR)-Fact-Sheet-[G].pdf"
+                            >TOPIRAMATE (Eprontia, Qudexy XR, Topamax, Trokendi
+                            XR) Fact Sheet [G]</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Alcoholics-Anonymous-Meetings_-The-Basics.pdf"
+                            >Alcoholics Anonymous Meetings: The Basics</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Help-Families-of-Alcohol-Users_-An-Overview.pdf"
+                            >How to Help Families of Alcohol Users: An
+                            Overview</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Quickly-Develop-a-Therapeutic-Alliance.pdf"
+                            >How to Quickly Develop a Therapeutic Alliance</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Manage-Alcohol-Withdrawal-in-Outpatient-Settings.pdf"
+                            >How to Manage Alcohol Withdrawal in Outpatient
+                            Settings</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Order-Biomarkers-of-Alcohol-Use-Disorder.pdf"
+                            >How to Order Biomarkers of Alcohol Use Disorder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Alcohol-Use-Disorder_-Tips-for-the-Initial-Assessment.pdf"
+                            >Alcohol Use Disorder: Tips for the Initial
+                            Assessment</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Alcohol-Use-Disorder-Treatment_-An-Overview.pdf"
+                            >Alcohol Use Disorder Treatment: An Overview</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/GABAPENTIN-(Gralise-Horizant-Neurontin)-Fact-Sheet-[G].pdf"
+                            >GABAPENTIN (Gralise, Horizant, Neurontin) Fact
+                            Sheet [G]</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Ask-DSM-5-Focused-Questions-for-Alcohol-Use-Disorder.pdf"
+                            >How to Ask DSM-5 Focused Questions for Alcohol Use
+                            Disorder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Manage-Alcohol-Withdrawal-in-Inpatient-Settings.pdf"
+                            >How to Manage Alcohol Withdrawal in Inpatient
+                            Settings</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Predict-Severity-of-Alcohol-Withdrawal.pdf"
+                            >How to Predict Severity of Alcohol Withdrawal</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/ACAMPROSATE-Fact-Sheet-for-Patients.pdf"
+                            >ACAMPROSATE Fact Sheet for Patients</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Al-Anon_Alateen-Fact-Sheet.pdf"
+                            >Al-Anon/Alateen Fact Sheet</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Blood-Alcohol-Level-Fact-Sheet.pdf"
+                            >Blood Alcohol Level Fact Sheet</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Cognitive-Behavioral-Therapy-Techniques-in-Alcohol-Use-Disorder.pdf"
+                            >Cognitive Behavioral Therapy Techniques in Alcohol
+                            Use Disorder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Alcohol-Withdrawal-Time-Course-and-Symptoms.pdf"
+                            >Alcohol Withdrawal Time Course and Symptoms</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Alcohol-Use-Disorder_-Psychosocial-Treatment-Options.pdf"
+                            >Alcohol Use Disorder: Psychosocial Treatment
+                            Options</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Choose-a-Benzodiazepine-for-Alcohol-Withdrawal.pdf"
+                            >How to Choose a Benzodiazepine for Alcohol
+                            Withdrawal</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/NALTREXONE-Fact-Sheet-for-Patients.pdf"
+                            >NALTREXONE Fact Sheet for Patients</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Automatic-Negative-Thought-Worksheet-for-Cognitive-Behavioral-Therapy.pdf"
+                            >Automatic Negative Thought Worksheet for Cognitive
+                            Behavioral Therapy</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Staging-Interventions-for-Alcohol-Use-Disorder.pdf"
+                            >Staging Interventions for Alcohol Use Disorder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/DISULFIRAM-Fact-Sheet-for-Patients.pdf"
+                            >DISULFIRAM Fact Sheet for Patients</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/NALTREXONE-(ReVia-Vivitrol)-Fact-Sheet-[G].pdf"
+                            >NALTREXONE (ReVia, Vivitrol) Fact Sheet [G]</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Motivational-Interviewing-in-Alcohol-Use-Disorder.pdf"
+                            >Motivational Interviewing in Alcohol Use
+                            Disorder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/Teaching-Relapse-Prevention-Techniques-in-Alcohol-Use-Disorder.pdf"
+                            >Teaching Relapse Prevention Techniques in Alcohol
+                            Use Disorder</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            href="https://www.thecarlatreport.com/ext/resources/factsheets/AUDFB1e/How-to-Choose-the-Right-Medications-for-Alcohol-Use-Disorder.pdf"
+                            >How to Choose the Right Medications for Alcohol Use
+                            Disorder</a
+                          >
+                        </li>
+                      </ul>
+                    </li>
+                    <li class="accordion-chevron">
+                      <a class="accordion-toggle second chev">
+                        <i class="fa fa-chevron-down"></i>Opioid Use Disorder
+                      </a>
+
+                      <ul class="accordion-inner show">
+                        <li>[Multiple bullet points will go here]</li>
+                      </ul>
+                    </li>
+                    <li>Stimulant Use Disorder Diagnosis and Treatment</li>
+                    <li>Cannabis Use Disorder Diagnosis and Treatment</li>
+                    <li>Sex Addiction</li>
+                    <li>Gambling Addiction</li>
+                  </ul>
+                </li>
+                <!-- End of Accordion  -->
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Personality Disorders</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>[Multiple bullet points will go here]</li>
+                  </ul>
+                </li>
+
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Psychopharmacology</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>Antidepressants</li>
+                    <li>Antipsychotics</li>
+                    <li>Anxiolytics</li>
+                    <li>Hypnotics</li>
+                    <li>Mood stabilizers</li>
+                    <li>[Multiple bullet points will go here]</li>
+                  </ul>
+                </li>
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Psychotherapy</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>[Multiple bullet points will go here]</li>
+                  </ul>
+                </li>
+                <li class="accordion-chevron">
+                  <a class="accordion-toggle first"
+                    ><i class="fa fa-chevron-down"></i
+                    ><strong>Trauma-Related Disorders</strong></a
+                  >
+
+                  <ul class="accordion-inner">
+                    <li>[Multiple bullet points will go here]</li>
+                  </ul>
+                </li>
+              </ul>
+              <script>
+                $("button#expand_all").click(function () {
+                  $(".accordion-toggle").addClass("chev");
+                  $(".accordion-inner").addClass("show");
+                });
+                $("button#collapse_all").click(function () {
+                  $(".accordion-toggle").removeClass("chev");
+                  $(".accordion-inner").removeClass("show");
+                });
+
+                function addClass(element, className) {
+                  element.classList.add(className);
+                }
+
+                function removeClass(element, className) {
+                  element.classList.remove(className);
+                }
+
+                function handleAccordionItem(item) {
+                  if (item.classList.contains("chev")) {
+                    removeClass(item, "chev");
+                  } else {
+                    addClass(item, "chev");
+                  }
+
+                  const innerContent = item.nextElementSibling;
+                  innerContent.classList.toggle("show");
+                }
+
+                const firstLevelItems = document.querySelectorAll(
+                  ".accordion-toggle.first"
+                );
+
+                firstLevelItems.forEach((item) => {
+                  item.addEventListener("click", () => {
+                    // Close all other open first-level items
+                    firstLevelItems.forEach((otherItem) => {
+                      if (otherItem !== item) {
+                        removeClass(otherItem, "chev");
+                        const otherInnerContent = otherItem.nextElementSibling;
+                        otherInnerContent.classList.remove("show");
+                      }
+                    });
+                    // Toggle the clicked item
+                    handleAccordionItem(item);
+                  });
+                });
+
+                const secondLevelItems = document.querySelectorAll(
+                  ".accordion-toggle.second"
+                );
+
+                secondLevelItems.forEach((item) => {
+                  item.addEventListener("click", () => {
+                    // Close all other open first-level items
+                    secondLevelItems.forEach((otherItem) => {
+                      if (otherItem !== item) {
+                        removeClass(otherItem, "chev");
+                        const otherInnerContent = otherItem.nextElementSibling;
+                        otherInnerContent.classList.remove("show");
+                      }
+                    });
+                    handleAccordionItem(item);
+                  });
+                });
+              </script>
+
+              <p>
+                <strong>We Invite Your Feedback</strong> <br />Excitingly, we're
+                in the midst of transforming these fact sheets into
+                ACCME-accredited CME activities. In the near future, you'll have
+                the opportunity to earn .25 hours of Category One CME credit
+                simply by reading a fact sheet and completing a short quiz.
+              </p>
+
+              <p>
+                We're truly passionate about our fact sheet initiative and
+                genuinely hope they help you in your day-to-day practice. We
+                value your insights, so please share your feedback—be it praise
+                or constructive criticism—through
+                <a
+                  href="https://carlatreport.activehosted.com/f/38"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >this link</a
+                >. Your input plays a pivotal role in shaping new projects and
+                refining our existing resources.
+              </p>
+
+              <p>
+                <br />
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-content mt">
+          <h1 class="borderData">Result Code</h1>
+          <textarea id="codeTextarea"></textarea>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.ckbox.io/CKBox/2.0.0/ckbox.js"></script>
+    <script src="./dist/main.js"></script>
+  </body>
+</html>
